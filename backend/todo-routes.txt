@@ -1,0 +1,69 @@
+Todo API routes
+===============
+
+Base URL:  /todos
+
+-----------------------------------------------------------------------------
+GET  /todos
+-----------------------------------------------------------------------------
+Description:  Get all todo lists (each list includes its items).
+
+Payload:      None (no body).
+
+Example:      GET http://localhost:8080/todos
+
+-----------------------------------------------------------------------------
+GET  /todos/:id
+-----------------------------------------------------------------------------
+Description:  Get one todo list by id (includes its items).
+
+Payload:      None (no body). Put the list id in the URL.
+
+Example:      GET http://localhost:8080/todos/1
+
+-----------------------------------------------------------------------------
+POST  /todos
+-----------------------------------------------------------------------------
+Description:  Create a new todo list. Optionally add items.
+
+Payload (JSON body):
+  - title   (required)  string   – name of the list
+  - items   (optional)  array    – list of item names (strings)
+
+Example:
+  {
+    "title": "Groceries",
+    "items": ["Milk", "Bread", "Eggs"]
+  }
+
+Request:  POST http://localhost:8080/todos
+          Body:    (JSON above)
+
+
+-----------------------------------------------------------------------------
+PUT  /todos/:id
+-----------------------------------------------------------------------------
+Description:  Update a todo list (title and/or items). Replaces existing items.
+
+Payload (JSON body):
+  - title   (optional)  string   – new list title
+  - items   (optional)  array   – new list of item names (strings). Replaces all items.
+
+Example:
+  {
+    "title": "Weekly groceries",
+    "items": ["Milk", "Bread", "Eggs", "Butter"]
+  }
+
+Request:  PUT http://localhost:8080/todos/1
+          Body:    (JSON above)
+
+
+-----------------------------------------------------------------------------
+DELETE  /todos/:id
+-----------------------------------------------------------------------------
+Description:  Delete a todo list (and all its items).
+
+Payload:      None (no body). Put the list id in the URL.
+
+Example:      DELETE http://localhost:8080/todos/1

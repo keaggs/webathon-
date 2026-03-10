@@ -1,0 +1,13 @@
+# Prisma migration commands
+
+# Create and apply a new migration (development)
+npx prisma migrate dev --name <migration_name>
+
+# Apply existing migrations (e.g. production / after pull)
+npx prisma migrate deploy
+
+# Reset database and re-apply all migrations (destroys data)
+npx prisma migrate reset
+
+# Regenerate Prisma Client only (after schema or migration changes)
+npx prisma generate
